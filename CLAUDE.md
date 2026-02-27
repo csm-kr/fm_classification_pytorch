@@ -70,13 +70,14 @@ git checkout -b feature/피쳐이름
 git add <파일>
 git commit -m "feat: 설명"
 
-# 3. develop에 병합
-git checkout develop
-git merge feature/피쳐이름
+# 3. remote에 push
+git push origin feature/피쳐이름
 
-# 4. feature 브랜치 삭제 (선택)
-git branch -d feature/피쳐이름
+# 4. GitHub에서 PR 생성: feature/피쳐이름 → develop
+#    PR merge 후 feature 브랜치 삭제
 ```
+
+- 로컬에서 직접 merge하지 않는다. **반드시 GitHub PR을 통해 develop에 병합한다.**
 
 ### 커밋 단위
 
