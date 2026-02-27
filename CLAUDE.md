@@ -54,9 +54,29 @@ master          # 안정적인 릴리즈 버전
     └── feature/피쳐이름  # 기능 개발 브랜치
 ```
 
-- `feature/*` 브랜치는 `develop`에 병합한다.
+- **`develop`에 직접 커밋하지 않는다.** 모든 작업은 `feature/*` 브랜치에서 수행한다.
+- `feature/*` 브랜치는 `develop`에서 분기하고, 완료 후 `develop`에 병합한다.
 - `develop`이 안정화되면 `master`에 병합한다.
 - 브랜치 이름은 소문자와 하이픈을 사용한다. (예: `feature/mnist-dataset`, `feature/dataloader`)
+
+### 작업 흐름
+
+```bash
+# 1. develop 기준으로 feature 브랜치 생성
+git checkout develop
+git checkout -b feature/피쳐이름
+
+# 2. 작업 및 커밋 (feature 브랜치에서)
+git add <파일>
+git commit -m "feat: 설명"
+
+# 3. develop에 병합
+git checkout develop
+git merge feature/피쳐이름
+
+# 4. feature 브랜치 삭제 (선택)
+git branch -d feature/피쳐이름
+```
 
 ### 커밋 단위
 
